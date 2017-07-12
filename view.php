@@ -33,7 +33,10 @@ include './Includes/header.php';
 		echo '
 		<br/>
 		<div style="width:95%;margin:0 auto;border-left:solid 10px #BB0000;padding-left:5px">'.$User.' @ '.$Time.'</div>
-		<div style="width:95%;margin:0 auto">'.$Raw.$Download.'</div>
+		<div style="width:95%;margin:0 auto">'
+			.$Raw
+			.$Download
+		.'</div>
 		<pre class="prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';	
 		$myfile = fopen('code/'.$file, "r");
 		echo fread($myfile, filesize('code/'.$file));
