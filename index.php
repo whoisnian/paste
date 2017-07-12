@@ -22,7 +22,7 @@ include './Includes/header.php';
 					<th>Other</th>
 				</tr>';
 				krsort($files);
-				$index = 1;
+				$index = count($files);
 				foreach($files as $file){
 					$Time = date("Y-m-d H:i", explode("_", $file)[0]);
 					$Type = explode("_", $file)[1];
@@ -30,7 +30,7 @@ include './Includes/header.php';
 					$View = '<a class="button" href="view.php?file='.$file.'">View</a>';
 					echo'
 				<tr>
-					<td>'.($index++).'</td>
+					<td>'.($index--).'</td>
 					<td>'.$Time.'</td>
 					<td>'.$Type.'</td>
 					<td>'.$User.'</td>
