@@ -40,7 +40,7 @@ include "./Includes/header.php";
 		
 		Type<span class="error">'.$typeErr.'</span><br/>
 		<select class="select" name="type">
-			<option value="default" selected="selected">Default</option>
+			<option value="auto" selected="selected">Auto</option>
 			<option valur="bash">Bash</option>
 			<option value="c">C</option>
 			<option value="cpp">C++</option>
