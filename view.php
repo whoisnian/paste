@@ -1,17 +1,31 @@
 <?php
-$TITLE = "View";
-include './Includes/header.php';
+$TITLE = 'View';
+$OTHERSTYLE = '
+	<style>
+	body {
+	  line-height: normal;
+	}
+	ol, li {
+	  line-height: normal;
+	}
+	</style>';
+$MENU = '<a href="./" class="mdl-layout__tab">Home</a>';
+include './include/header.php';
 
+	echo '
+	  <main class="mdl-layout__content">
+		<div class="mdl-list__item mdl-list__item--two-line">';
 	if(isset($_GET['file'])) {
 		$file = $_GET['file'];
 		$Time = date("Y-m-d H:i", explode("_", $file)[0]);
 		$Type = explode("_", $file)[1];
-		$User = explode("_", $file)[2];
-		$Raw = '<a class="button" style="color:#FFFFFF;margin:10px 0 0 5px;border-width:1px;border-radius:0;padding:0 10px;box-shadow:0 0 5px 2px #666666;" href="/raw.php?file='.$file.'">Raw</a> ';
-		$Download = '<a class="button" style="color:#FFFFFF;margin:10px 0 0 5px;border-width:1px;border-radius:0;padding:0 10px;box-shadow:0 0 5px 2px #666666;" href="/code/'.$file.'" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
+		$Poster = explode("_", $file)[2];
+		$Raw = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./raw.php?file='.$file.'">Raw</a>';
+		$Download = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./code/'.$file.'" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
 	}
 	else {
-		echo '<meta http-equiv="refresh" content="0;url=index.php">';
+		echo '<meta http-equiv="refresh" content="0;url=./index.php">';
+		exit();
 	}
 
 	if($Type == "bash")
@@ -31,21 +45,27 @@ include './Includes/header.php';
 	
 	if(file_exists('code/'.$file)) {
 		echo '
-		<br/>
-		<div style="width:95%;margin:0 auto;border-left:solid 10px #BB0000;padding-left:5px">'.$User.' @ '.$Time.'</div>
-		<div style="width:95%;margin:0 auto">'
-			.$Raw
-			.$Download
-		.'</div>
+		  <span class="mdl-list__item-primary-content">
+			<i class="material-icons mdl-list__item-avatar">person</i>
+			<span>'.$Poster.'</span>
+			<span class="mdl-list__item-sub-title">'.$Time.'</span>
+		  </span>
+		  <span class="mdl-list__item-secondary-info">
+		    '.$Raw.'
+			'.$Download.'
+		  </span>
+		</div>
 		<pre class="prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';	
-		$myfile = fopen('code/'.$file, "r");
-		echo fread($myfile, filesize('code/'.$file));
+		$myfile = fopen('./code/'.$file, "r");
+		echo fread($myfile, filesize('./code/'.$file));
 		fclose($myfile);
 		echo '</script></pre>';
 	}
 	else {
-		echo '<div class="table" style="border-left:solid 10px #BB0000;padding-left:5px">File Not Exists!</div>';
+		echo 'File Not Exists!';
 	}
+	echo '
+	  </main>';
 
-include './Includes/footer.php';
+include './include/footer.php';
 ?>
