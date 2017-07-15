@@ -9,7 +9,7 @@ $OTHERSTYLE = '
 	  line-height: normal;
 	}
 	</style>';
-$MENU = '<a href="./" class="mdl-layout__tab">Home</a>';
+$MENU = '<a href="./" class="mdl-layout__tab">History</a>';
 include './include/header.php';
 
 	echo '
