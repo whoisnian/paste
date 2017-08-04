@@ -8,13 +8,15 @@ $OTHERSTYLE = '
 	ol, li {
 	  line-height: normal;
 	}
+	.wide {
+		width:100%;
+	}
 	</style>';
 $MENU = '<a href="./" class="mdl-layout__tab">History</a>';
 include './include/header.php';
 
 	echo '
-	  <main class="mdl-layout__content">
-		<div class="mdl-list__item mdl-list__item--two-line">';
+		<div class="wide mdl-list__item mdl-list__item--two-line">';
 	if(isset($_GET['file'])) {
 		$file = $_GET['file'];
 		$Time = date("Y-m-d H:i", explode("_", $file)[0]);
@@ -64,8 +66,6 @@ include './include/header.php';
 	else {
 		echo 'File Not Exists!';
 	}
-	echo '
-	  </main>';
 
 include './include/footer.php';
 ?>

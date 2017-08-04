@@ -1,14 +1,21 @@
 <?php
 $TITLE = 'Paste';
-$OTHERSTYLE = '';
+$OTHERSTYLE = '
+	<style>
+	.center {
+		margin:0 auto;
+	}
+	.wide {
+		width:100%;
+	}
+	</style>';
 $MENU = '<a href="#history" class="mdl-layout__tab is-active">History</a>
 		<a href="#new" class="mdl-layout__tab">New</a>';
 include './include/header.php';
 
 	echo '
-	  <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="history">
-		  <section class="section--center mdl-grid mdl-grid--no-spacing">';
+        <div class="wide mdl-layout__tab-panel is-active" id="history">
+		      <section class="wide section--center mdl-grid mdl-grid--no-spacing">';
 	$dir = 'code';
 	if(is_dir($dir)){
 		if($dh = opendir($dir)){
@@ -19,7 +26,7 @@ include './include/header.php';
 			}
 			if(!empty($files)){
 				echo '
-            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">';
+            <table class="center mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">';
 				krsort($files);
 				$index = count($files);
 				foreach($files as $file){
@@ -48,9 +55,9 @@ include './include/header.php';
 	echo '
 		  </section>
 		</div>
-		<div class="mdl-layout__tab-panel" id="new">
-          <section class="section--center mdl-grid mdl-grid--no-spacing"> 
-			<form class="mdl-cell--12-col" action="./new.php" method="post">
+		<div class="wide mdl-layout__tab-panel" id="new">
+      <section class="wide section--center mdl-grid mdl-grid--no-spacing"> 
+			<form class="center mdl-cell--12-col" action="./new.php" method="post">
 
 		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" name="poster" id="poster">
@@ -78,8 +85,7 @@ include './include/header.php';
 			  <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" type="submit" name="submit" value="Paste"><br/>
 
 			</form>
-          </section>
-		</div>
-	  </main>';
+      </section>
+		</div>';
 include './include/footer.php';
 ?>
