@@ -11,6 +11,9 @@ $OTHERSTYLE = '
 	.wide {
 		width:100%;
 	}
+	.top {
+		margin-top: 0;
+	}
 	</style>';
 $MENU = '<a href="./" class="mdl-layout__tab">History</a>';
 include './include/header.php';
@@ -57,14 +60,19 @@ include './include/header.php';
 			'.$Download.'
 		  </span>
 		</div>
-		<pre class="prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';	
+		<div class="top wide">
+			<pre class="prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';	
 		$myfile = fopen('./code/'.$file, "r");
 		echo fread($myfile, filesize('./code/'.$file));
 		fclose($myfile);
-		echo '</script></pre>';
+		echo '</script>
+			</pre>
+		</div>';
 	}
 	else {
-		echo 'File Not Exists!';
+		echo '
+			File Not Exists!
+		</div>';
 	}
 
 include './include/footer.php';

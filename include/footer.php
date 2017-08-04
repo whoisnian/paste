@@ -8,7 +8,7 @@
 		        <a href="https://github.com/whoisnian/paste">https://github.com/whoisnian/paste</a>
 					</span>
         </footer>
-			<main>
+			</main>
     </div>
 	<script src="./js/material.min.js"></script>
 	<script type="text/javascript" src="./js/prettify.js"></script>
