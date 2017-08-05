@@ -16,12 +16,12 @@ Make a website with PHP to share codes.
     * `cat nian.css | curl -d "poster=nian" --data-urlencode content@- "http://paste.whoisnian.com/new.php"` (only auto type)  
     * `cat try.cpp | curl -d "type=cpp" --data-urlencode content@- "http://paste.whoisnian.com/new.php"` (only anonymous)  
     * `cat ipgw.sh | curl -d "poster=nian&type=bash" --data-urlencode content@- "http://paste.whoisnian.com/new.php"`  
-    * It's so long that a `paste.sh` will be much better.(an example will be given later)  
+    * It's so long that a `pastecode.sh` will be much better.(an example [pastecode](https://raw.githubusercontent.com/whoisnian/script/master/pastecode))  
 * Delete:
   * Loading...
 
 ## Todo
-- [ ] paste.sh example.  
+- [x] pastecode.sh example.  
 - [ ] Delete code files.  
 - [x] Paste code in the console without Explorer.  
 - [x] Beautify the website.  
