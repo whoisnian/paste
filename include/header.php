@@ -3,7 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="Paste your code freely.">
+	<meta name="description" content="Paste your code freely.">
+	<meta name="viewport" content="width=500">
     <title>'.$TITLE.'</title>
 
     <link rel="shortcut icon" href="./image/favicon.png">
