@@ -43,6 +43,8 @@ include './include/header.php';
 		$Lang = "lang-cpp";
 	else if($Type == "css")
 		$Lang = "lang-css";
+	else if($Type == "go")
+		$Lang = "lang-go";
 	else if($Type == "html")
 		$Lang = "lang-html";
 	else if($Type == "php")

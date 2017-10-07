@@ -71,6 +71,7 @@ include './include/header.php';
 				  <option value="c">C</option>
 				  <option value="cpp">C++</option>
 				  <option value="css">CSS</option>
+				  <option value="go">Go</option>
 				  <option value="html">HTML</option>
 				  <option value="php">PHP</option>
 				</select>

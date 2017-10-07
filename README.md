@@ -4,7 +4,7 @@ Make a website with PHP to share codes.
 ## Notice
 * `sudo chmod -R 777 code` to enable apache to create new code files.  
 * Languages now supported:  
-  `Bash, C, C++, CSS, HTML, PHP`  
+  `Bash, C, C++, CSS, Go, HTML, PHP`  
 * Material Design: [Material Design Lite](https://getmdl.io)  
 * Code HighLight: [google-code-prettify](https://github.com/google/code-prettify)  
 
