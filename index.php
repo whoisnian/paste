@@ -20,8 +20,14 @@ include './include/header.php';
 	if(is_dir($dir)){
 		if($dh = opendir($dir)){
 			while(($file = readdir($dh))){
-				if($file == "."||$file == ".."||$file == "index.html")continue;
-				$key = explode("_", $file)[0];
+                if($file == "."||$file == ".."||$file == "index.html")continue;
+                $key = explode("_", $file, 3)[0];
+                
+                //自动删除上传时间超过7天的代码
+                if(floor(microtime(true)*1000) - $key > 86400000 * 7) {
+                    unlink($dir.'/'.$file);
+                    continue;
+                }
 				$files[$key] = $file; 
 			}
 			if(!empty($files)){
@@ -30,9 +36,9 @@ include './include/header.php';
 				krsort($files);
 				$index = count($files);
 				foreach($files as $file){
-					$Time = date("Y-m-d H:i", explode("_", $file)[0]);
-					$Type = explode("_", $file)[1];
-					$Poster = explode("_", $file)[2];
+					$Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
+					$Type = explode("_", $file, 3)[1];
+					$Poster = explode("_", $file, 3)[2];
 					$View = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./view.php?file='.$file.'">View</a>';
 					echo'
 			  <tr>

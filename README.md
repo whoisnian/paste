@@ -18,11 +18,11 @@ Make a website with PHP to share codes.
     * `cat ipgw.sh | curl -d "poster=nian&type=bash" --data-urlencode content@- "http://paste.whoisnian.com/new.php"`  
     * It's so long that a `pastecode.sh` will be much better.(an example [pastecode](https://raw.githubusercontent.com/whoisnian/script/master/pastecode))  
 * Delete:
-  * Loading...
+  * Code files are automatically deleted after 7 days;
 
 ## Todo
 - [x] pastecode.sh example.  
-- [ ] Delete code files.  
+- [x] Automatically delete code files.  
 - [x] Paste code in the console without Explorer.  
 - [x] Beautify the website.  
 

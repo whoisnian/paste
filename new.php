@@ -2,7 +2,7 @@
 	$Err = "";
 	$success = 1;
 	if(isset($_POST['submit'])) {
-		$Time = time();
+		$Time = floor(microtime(true)*1000);
 		$Poster = $_POST['poster'];
 		$Type = $_POST['type'];
 		$Content = $_POST['content'];
@@ -31,7 +31,7 @@
 		}
 	}
 	else if(isset($_POST['content'])) {
-		$Time = time();
+		$Time = floor(microtime(true)*1000);
 		$Poster = "anonymous";
 		if(isset($_POST['poster']))
 			$Poster = $_POST['poster'];
