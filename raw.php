@@ -9,10 +9,9 @@
 		exit();
 	}
 	
-	if(file_exists('code/'.$file)) {
-		$myfile = fopen('code/'.$file, "r");
-		echo fread($myfile, filesize('code/'.$file));
-		fclose($myfile);
+	if(file_exists('./code/'.$file)) {
+		$myfile = file_get_contents('./code/'.$file);
+		echo chop($myfile);
 	}
 	else {
 		echo 'File Not Exists!';

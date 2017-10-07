@@ -50,7 +50,7 @@ include './include/header.php';
 	else
 		$Lang = "";
 	
-	if(file_exists('code/'.$file)) {
+	if(file_exists('./code/'.$file)) {
 		echo '
 		    <span class="mdl-list__item-primary-content">
 			  <i class="material-icons mdl-list__item-avatar">person</i>
