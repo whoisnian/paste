@@ -10,12 +10,12 @@ $OTHERSTYLE = '
 	}
 	</style>';
 $MENU = '<a href="#history" class="mdl-layout__tab is-active">History</a>
-		<a href="#new" class="mdl-layout__tab">New</a>';
+		 <a href="#new" class="mdl-layout__tab">New</a>';
 include './include/header.php';
 
 	echo '
         <div class="wide mdl-layout__tab-panel is-active" id="history">
-		      <section class="wide section--center mdl-grid mdl-grid--no-spacing">';
+		  <section class="wide section--center mdl-grid mdl-grid--no-spacing">';
 	$dir = 'code';
 	if(is_dir($dir)){
 		if($dh = opendir($dir)){
@@ -56,7 +56,7 @@ include './include/header.php';
 		  </section>
 		</div>
 		<div class="wide mdl-layout__tab-panel" id="new">
-      <section class="wide section--center mdl-grid mdl-grid--no-spacing"> 
+          <section class="wide section--center mdl-grid mdl-grid--no-spacing"> 
 			<form class="center mdl-cell--12-col" action="./new.php" method="post">
 
 		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -85,7 +85,7 @@ include './include/header.php';
 			  <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" type="submit" name="submit" value="Paste"><br/>
 
 			</form>
-      </section>
+          </section>
 		</div>';
 include './include/footer.php';
 ?>

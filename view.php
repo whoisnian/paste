@@ -11,15 +11,17 @@ $OTHERSTYLE = '
 	.wide {
 		width:100%;
 	}
-	.top {
-		margin-top: 0;
+	.center {
+		position: absolute;
+		margin: 0 auto;
 	}
 	</style>';
 $MENU = '<a href="./" class="mdl-layout__tab">History</a>';
 include './include/header.php';
 
 	echo '
-		<div class="wide mdl-list__item mdl-list__item--two-line">';
+	    <div class = "center wide mdl-grid mdl-grid--no-spacing">
+		  <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item--two-line">';
 	if(isset($_GET['file'])) {
 		$file = $_GET['file'];
 		$Time = date("Y-m-d H:i", explode("_", $file)[0]);
@@ -50,23 +52,20 @@ include './include/header.php';
 	
 	if(file_exists('code/'.$file)) {
 		echo '
-		  <span class="mdl-list__item-primary-content">
-			<i class="material-icons mdl-list__item-avatar">person</i>
-			<span>'.$Poster.'</span>
-			<span class="mdl-list__item-sub-title">'.$Time.'</span>
-		  </span>
-		  <span class="mdl-list__item-secondary-info">
-		    '.$Raw.'
-			'.$Download.'
-		  </span>
-		</div>
-		<div class="top wide">
-			<pre class="prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';	
-		$myfile = fopen('./code/'.$file, "r");
-		echo fread($myfile, filesize('./code/'.$file));
-		fclose($myfile);
-		echo '</script>
-			</pre>
+		    <span class="mdl-list__item-primary-content">
+			  <i class="material-icons mdl-list__item-avatar">person</i>
+			  <span>'.$Poster.'</span>
+			  <span class="mdl-list__item-sub-title">'.$Time.'</span>
+		    </span>
+		    <span class="mdl-list__item-secondary-info">
+		      '.$Raw.'
+			  '.$Download.'
+			</span>
+		  </div>
+		  <pre class="mdl-cell mdl-cell--12-col prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';
+		$myfile = file_get_contents('./code/'.$file);
+		echo chop($myfile);
+		echo '</script></pre>
 		</div>';
 	}
 	else {
