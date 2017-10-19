@@ -4,7 +4,7 @@
   <head>
 	<meta charset="utf-8">
 	<meta name="author" content="nian">
-	<meat name="repo" content="https://github.com/whoisnian/paste">
+	<meta name="repo" content="https://github.com/whoisnian/paste">
 	<meta name="description" content="Paste your code freely.">
 	
 	<title>'.$TITLE.'</title>
