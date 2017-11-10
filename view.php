@@ -64,10 +64,10 @@ include './include/header.php';
               '.$Download.'
             </span>
           </div>
-          <pre class="mdl-cell mdl-cell--12-col prettyprint '.$Lang.' linenums"><script type="text/html" style="display:block">';
+          <pre class="mdl-cell mdl-cell--12-col prettyprint '.$Lang.' linenums">';
         $myfile = file_get_contents('./code/'.$file);
-        echo chop($myfile);
-        echo '</script></pre>
+        echo htmlentities(chop($myfile));
+        echo '</pre>
         </div>';
     }
     else {
