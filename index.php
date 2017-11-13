@@ -39,7 +39,7 @@ include './include/header.php';
                     $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
                     $Type = explode("_", $file, 3)[1];
                     $Poster = explode("_", $file, 3)[2];
-                    $View = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./view.php?file='.$file.'">View</a>';
+                    $View = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./view.php?file='.explode("_", $file)[0].'">View</a>';
                     echo'
               <tr>
                 <td class="mdl-data-table__cell--non-numeric">'.($index--).'</td>

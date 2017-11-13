@@ -24,7 +24,7 @@
             $myfile = fopen('./code/'.$file, "w");
             fwrite($myfile, $Content);
             fclose($myfile);
-            echo '<html><script>window.location.href="./view.php?file='.$file.'";</script></html>';
+            echo '<html><script>window.location.href="./view.php?file='.$Time.'";</script></html>';
         }
         else {
             echo '<html><script>window.history.back(-1);alert("'.$Err.'");</script></html>';
@@ -57,7 +57,7 @@
             $myfile = fopen('./code/'.$file, "w");
             fwrite($myfile, $Content);
             fclose($myfile);
-            $url = "\nhttp://".$_SERVER['SERVER_NAME']."/view.php?file=".$file."\n\n";
+            $url = "\nhttp://".$_SERVER['SERVER_NAME']."/view.php?file=".$Time."\n\n";
             echo $url;
         }
         else {

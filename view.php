@@ -23,7 +23,7 @@ include './include/header.php';
         <div class = "center wide mdl-grid mdl-grid--no-spacing">
           <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item--two-line">';
     if(isset($_GET['file'])) {
-        $file = $_GET['file'];
+        $file = basename(glob("./code/".$_GET['file']."*")[0]);
         $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
         $Type = explode("_", $file, 3)[1];
         $Poster = explode("_", $file, 3)[2];
