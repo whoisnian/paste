@@ -55,7 +55,7 @@ include './include/header.php';
     if(file_exists('./code/'.$file)) {
         echo '
             <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-avatar">person</i>
+              <img class="mdl-list__item-avatar" src="http://www.gravatar.com/avatar/'.md5($Poster).'?s=56&d=retro">
               <span>'.$Poster.'</span>
               <span class="mdl-list__item-sub-title">'.$Time.'</span>
             </span>
