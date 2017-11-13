@@ -24,10 +24,10 @@
             $myfile = fopen('./code/'.$file, "w");
             fwrite($myfile, $Content);
             fclose($myfile);
-            echo '<meta http-equiv="refresh" content="0;url=./view.php?file='.$file.'">';
+            echo '<html><script>window.location.href="./view.php?file='.$file.'";</script></html>';
         }
         else {
-            echo '<script>window.history.back(-1);alert("'.$Err.'");</script>';
+            echo '<html><script>window.history.back(-1);alert("'.$Err.'");</script></html>';
         }
     }
     else if(isset($_POST['content'])) {
@@ -65,6 +65,6 @@
         }
     }
     else {
-        echo '<meta http-equiv="refresh" content="0;url=./index.php">';
+        echo '<html><script>window.location.href="./index.php";</script></html>';
     }
 ?>
