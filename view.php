@@ -23,12 +23,17 @@ include './include/header.php';
         <div class = "center wide mdl-grid mdl-grid--no-spacing">
           <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item--two-line">';
     if(isset($_GET['file'])) {
-        $file = basename(glob("./code/".$_GET['file']."*")[0]);
-        $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
-        $Type = explode("_", $file, 3)[1];
-        $Poster = explode("_", $file, 3)[2];
-        $Raw = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./raw.php?file='.$file.'">Raw</a>';
-        $Download = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./code/'.$file.'" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
+        if(!empty(glob("./code/".$_GET['file']."*"))) {
+            $file = basename(glob("./code/".$_GET['file']."*")[0]);
+            $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
+            $Type = explode("_", $file, 3)[1];
+            $Poster = explode("_", $file, 3)[2];
+            $Raw = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./raw.php?file='.$file.'">Raw</a>';
+            $Download = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./code/'.$file.'" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
+        }
+        else {
+            $file = 'File Not Exists!';
+        }
     }
     else {
         echo '<meta http-equiv="refresh" content="0;url=./index.php">';
