@@ -20,7 +20,7 @@
         }
 
         if($success) {
-            $file = $Time.'_'.$Type.'_'.$Poster;
+            $file = $Time.'_'.$Type.'_'.$Poster.'.txt';
             $myfile = fopen('./code/'.$file, "w");
             fwrite($myfile, $Content);
             fclose($myfile);
@@ -53,7 +53,7 @@
         }
 
         if($success) {
-            $file = $Time.'_'.$Type.'_'.$Poster;
+            $file = $Time.'_'.$Type.'_'.$Poster.'.txt';
             $myfile = fopen('./code/'.$file, "w");
             fwrite($myfile, $Content);
             fclose($myfile);

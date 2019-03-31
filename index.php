@@ -36,6 +36,7 @@ include './include/header.php';
                 krsort($files);
                 $index = count($files);
                 foreach($files as $file){
+                    $file = basename($file, '.txt');
                     $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
                     $Type = explode("_", $file, 3)[1];
                     $Poster = explode("_", $file, 3)[2];

@@ -24,12 +24,12 @@ include './include/header.php';
           <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item--two-line">';
     if(isset($_GET['file'])) {
         if(!empty(glob("./code/".$_GET['file']."*"))) {
-            $file = basename(glob("./code/".$_GET['file']."*")[0]);
+            $file = basename(glob("./code/".$_GET['file']."*")[0], '.txt');
             $Time = date("Y-m-d H:i", floor(explode("_", $file)[0] / 1000));
             $Type = explode("_", $file, 3)[1];
             $Poster = explode("_", $file, 3)[2];
             $Raw = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./raw.php?file='.$file.'">Raw</a>';
-            $Download = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./code/'.$file.'" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
+            $Download = '<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="./code/'.$file.'.txt" download="'.explode("_", $file)[0].'.'.$Type.'">Download</a>';
         }
         else {
             $file = 'File Not Exists!';
@@ -57,7 +57,7 @@ include './include/header.php';
     else
         $Lang = "";
     
-    if(file_exists('./code/'.$file)) {
+    if(file_exists('./code/'.$file.'.txt')) {
         echo '
             <span class="mdl-list__item-primary-content">
               <img class="mdl-list__item-avatar" src="/gravatar.php?user='.$Poster.'&s=48&d=retro">
@@ -70,7 +70,7 @@ include './include/header.php';
             </span>
           </div>
           <pre class="mdl-cell mdl-cell--12-col prettyprint '.$Lang.' linenums">';
-        $myfile = file_get_contents('./code/'.$file);
+        $myfile = file_get_contents('./code/'.$file.'.txt');
         echo htmlentities(chop($myfile));
         echo '</pre>
         </div>';
