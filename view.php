@@ -22,6 +22,14 @@ include './include/header.php';
     echo '
         <div class = "center wide mdl-grid mdl-grid--no-spacing">
           <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item--two-line">';
+
+    $file = '';
+    $Time = '';
+    $Type = '';
+    $Poster = '';
+    $Raw = '';
+    $Download = '';
+
     if(isset($_GET['file'])) {
         if(!empty(glob("./code/".$_GET['file']."*"))) {
             $file = basename(glob("./code/".$_GET['file']."*")[0], '.txt');
